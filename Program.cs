@@ -89,6 +89,7 @@ namespace ConsoleApp2
                         case 2: Console.WriteLine($"{i}.Öğrencinin nuamrasını giriniz");
                                 liste[i,j]=Console.ReadLine();
                             break;
+                        default: Console.WriteLine("Hatalı giriş"); break;
                     }
                 }
             }
