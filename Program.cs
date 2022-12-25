@@ -86,7 +86,7 @@ namespace ConsoleApp2
                         case 1: Console.WriteLine($"{i}. Öğrencinin soyadını giriniz");
                             liste[i, j] = Console.ReadLine();
                             break;
-                        case 2: Console.WriteLine($"{i}.Öğrencinin nuamrasını giriniz");
+                        case 2: Console.WriteLine($"{i}.Öğrencinin numarasını giriniz");
                                 liste[i,j]=Console.ReadLine();
                             break;
                         default: Console.WriteLine("Hatalı giriş"); break;
