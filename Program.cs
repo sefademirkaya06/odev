@@ -32,8 +32,8 @@ namespace ConsoleApp2
             //int adet = int.Parse(Console.ReadLine());
             //string[,] parametreler = new string[adet + 1, 3];
             //parametreler[0, 0] = "AD";
-            //parametreler[1, 0] = "SOYAD";
-            //parametreler[2, 0] = "NUMARA";
+            //parametreler[0, 1] = "SOYAD";
+            //parametreler[0, 2] = "NUMARA";
             //for (int i = 1; i < parametreler.GetLength(0); i++)
             //{
             //    for (int j = 0; j < parametreler.GetLength(1); j++)
@@ -61,46 +61,55 @@ namespace ConsoleApp2
             //{
             //    for (int j = 0; j < parametreler.GetLength(1); j++)
             //    {
-            //        Console.Write(parametreler[i,j]+ " ");
+            //        Console.Write(parametreler[i, j] + " ");
             //    }
             //    Console.WriteLine();
 
             //}
 
-
-            Console.WriteLine("Kaç adet öğrenci kaydetmek istiyorsunuz?");
-            int adet = int.Parse(Console.ReadLine());
-            string[,] liste = new string[adet + 1, 3];
-            liste[0, 0] = "Ad";
-            liste[0, 1] = "Soyad";
-            liste[0, 2] = "Numara";
-            for (int i = 1; i < liste.GetLength(0); i++)
+            try
             {
-                for (int j = 0; j < liste.GetLength(1); j++)
+                Console.WriteLine("Kaç adet öğrenci kaydetmek istiyorsunuz?");
+                int adet = int.Parse(Console.ReadLine());
+                string[,] liste = new string[adet + 1, 3];
+                liste[0, 0] = "Ad";
+                liste[0, 1] = "Soyad";
+                liste[0, 2] = "Numara";
+                for (int i = 1; i < liste.GetLength(0); i++)
                 {
-                    switch(j)
+                    for (int j = 0; j < liste.GetLength(1); j++)
                     {
-                        case 0: Console.WriteLine($"{i}.Öğrencinin ismini giriniz");
-                            liste[i,j]=Console.ReadLine();
-                            break;
-                        case 1: Console.WriteLine($"{i}. Öğrencinin soyadını giriniz");
-                            liste[i, j] = Console.ReadLine();
-                            break;
-                        case 2: Console.WriteLine($"{i}.Öğrencinin numarasını giriniz");
-                                liste[i,j]=Console.ReadLine();
-                            break;
-                        default: Console.WriteLine("Hatalı giriş"); break;
+                        switch (j)
+                        {
+                            case 0:
+                                Console.WriteLine($"{i}.Öğrencinin ismini giriniz");
+                                liste[i, j] = Console.ReadLine();
+                                break;
+                            case 1:
+                                Console.WriteLine($"{i}. Öğrencinin soyadını giriniz");
+                                liste[i, j] = Console.ReadLine();
+                                break;
+                            case 2:
+                                Console.WriteLine($"{i}.Öğrencinin numarasını giriniz");
+                                liste[i, j] = Console.ReadLine();
+                                break;
+                            default: Console.WriteLine("Hatalı giriş"); break;
+                        }
                     }
                 }
-            }
-            for (int i = 0; i < liste.GetLength(0) ; i++)
-            {
-                for (int j = 0; j < liste.GetLength(1); j++)
+                for (int i = 0; i < liste.GetLength(0); i++)
                 {
-                    Console.Write(liste[i,j]+ " ");
+                    for (int j = 0; j < liste.GetLength(1); j++)
+                    {
+                        Console.Write(liste[i, j] + " ");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
             }
+            catch (FormatException) {
+                Console.WriteLine("Lütfen sayı giriniz");
+            }
+            
 
         }
     }
