@@ -4,7 +4,8 @@ using System.Runtime.CompilerServices;
 namespace ConsoleApp2
 {
     internal class Program
-    {
+    {        
+     
         static void Main(string[] args)
         {
             //int[,] sayilar = new int[4, 3];
@@ -71,10 +72,12 @@ namespace ConsoleApp2
             {
                 Console.WriteLine("Kaç adet öğrenci kaydetmek istiyorsunuz?");
                 int adet = int.Parse(Console.ReadLine());
-                string[,] liste = new string[adet + 1, 3];
+                string[,] liste = new string[adet + 1, 4];
                 liste[0, 0] = "Ad";
                 liste[0, 1] = "Soyad";
-                liste[0, 2] = "Numara";
+                liste[0, 2] = "Sınıf"; 
+                liste[0, 3] = "Numara";
+
                 for (int i = 1; i < liste.GetLength(0); i++)
                 {
                     for (int j = 0; j < liste.GetLength(1); j++)
@@ -90,7 +93,10 @@ namespace ConsoleApp2
                                 liste[i, j] = Console.ReadLine();
                                 break;
                             case 2:
-                                Console.WriteLine($"{i}.Öğrencinin numarasını giriniz");
+                                Console.WriteLine($"{i}.Öğrencinin sınıfını giriniz");
+                                liste[i, j] = Console.ReadLine();
+                                break;
+                            case 3: Console.WriteLine($"{i}.Öğrencinin numarasını giriniz");
                                 liste[i, j] = Console.ReadLine();
                                 break;
                             default: Console.WriteLine("Hatalı giriş"); break;
@@ -106,10 +112,11 @@ namespace ConsoleApp2
                     Console.WriteLine();
                 }
             }
-            catch (FormatException) {
-                Console.WriteLine("Lütfen sayı giriniz");
-            }
-            
+            catch (FormatException)
+            {
+                Console.WriteLine("Lütfen sayı giriniz"); 
+                
+            } 
 
         }
     }
